@@ -9,7 +9,7 @@ class MethodVisitor extends VoidVisitorAdapter {
 
 	private ArrayList<MethodEntity> methodList = new ArrayList<MethodEntity>();
 
-	 public void visit(MethodDeclaration n, Object object) {
+	public void visit(MethodDeclaration n, Object object) {
 		MethodEntity entity = new MethodEntity(n.getName(), n.getBeginLine(), n.getEndLine());
 		methodList.add(entity);
 		super.visit(n, object);
