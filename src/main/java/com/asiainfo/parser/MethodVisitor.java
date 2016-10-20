@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
-class MethodVisitor extends VoidVisitorAdapter {
+class MethodVisitor extends VoidVisitorAdapter<Object> {
 
 	private ArrayList<MethodEntity> methodList = new ArrayList<MethodEntity>();
 

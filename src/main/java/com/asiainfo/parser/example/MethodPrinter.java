@@ -1,13 +1,10 @@
 package com.asiainfo.parser.example;
 
 import java.io.FileInputStream;
-import java.util.List;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.comments.Comment;
-import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 public class MethodPrinter {
@@ -30,7 +27,7 @@ public class MethodPrinter {
 	/**
 	 * Simple visitor implementation for visiting MethodDeclaration nodes.
 	 */
-	private static class MethodVisitor extends VoidVisitorAdapter {
+	private static class MethodVisitor extends VoidVisitorAdapter<Object> {
 
 		@Override
 		public void visit(MethodDeclaration n, Object arg) {
@@ -38,10 +35,10 @@ public class MethodPrinter {
 			// this method will be called for all methods in this
 			// CompilationUnit, including inner class methods
 			System.out.println(n.getName());
-			//System.out.println(n.getBeginLine());
-			//System.out.println(n.getDeclarationAsString());
-			//System.out.println(n.getEndLine());
-			//System.out.println(n.getBody());
+			// System.out.println(n.getBeginLine());
+			// System.out.println(n.getDeclarationAsString());
+			// System.out.println(n.getEndLine());
+			// System.out.println(n.getBody());
 			System.out.println(n.toString());
 			System.out.println();
 			super.visit(n, arg);

@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -14,7 +13,7 @@ import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 
 public abstract class Parser {
-	HashMap resultMap = new HashMap<>();
+	HashMap<String, Object> resultMap = new HashMap<>();
 
 	public ArrayList<MethodEntity> methodsName(String file) throws IOException {
 		// String basePath = this.getClass().getResource("/").getPath();
@@ -42,11 +41,12 @@ public abstract class Parser {
 		return methodVisitor.getMethodList();
 	}
 
-	public abstract void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList) throws IOException;
+	public abstract void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
+			throws IOException;
 
 	public abstract void delOrAdd(String srcFile) throws IOException;
 
-	public HashMap parserMd(Map map) throws IOException {
+	public HashMap<String, Object> parserMd(Map<String, Object> map) throws IOException {
 		if (map.get("fileType").equals("del")) {
 			delOrAdd((String) map.get("fromFileName"));
 		} else if (map.get("fileType").equals("add")) {

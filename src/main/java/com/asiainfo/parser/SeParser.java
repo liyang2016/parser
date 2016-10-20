@@ -13,18 +13,6 @@ public class SeParser extends Parser {
 		ArrayList<MethodEntity> resultMethods = new ArrayList<MethodEntity>();
 		search(methods, addLinesList, resultMethods);
 		search(methods, delLinesList, resultMethods);
-		// for (Integer i : delLinesList) {
-		// int index = Util.binarySearch(methods, i);
-		// if (index >= 0) {
-		// resultMethods.add(methods.get(index));
-		// }
-		// }
-		// for (Integer i : addLinesList) {
-		// int index = Util.binarySearch(methods, i);
-		// if (index >= 0) {
-		// resultMethods.add(methods.get(index));
-		// }
-		// }
 		removeSame(resultMethods);
 		resultMap.put("methods", resultMethods);
 	}

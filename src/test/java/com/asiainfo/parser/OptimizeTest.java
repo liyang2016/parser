@@ -8,7 +8,7 @@ import java.util.Map;
 import org.junit.Test;
 
 public class OptimizeTest {
-	Map map = new HashMap();
+	Map<String,Object> map = new HashMap<>();
 
 	@Test
 	public void testModifyByBin() throws IOException {
@@ -38,7 +38,7 @@ public class OptimizeTest {
 		map.put("addLines", addList);
 		Parser parser = new BinParser();
 		long startTime = System.currentTimeMillis();
-		HashMap hashMap = parser.parserMd(map);
+		HashMap<String,Object> hashMap = parser.parserMd(map);
 		long endTime = System.currentTimeMillis();
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
@@ -77,7 +77,7 @@ public class OptimizeTest {
 		map.put("addLines", addList);
 		Parser parser = new SeParser();
 		long startTime = System.currentTimeMillis();
-		HashMap hashMap = parser.parserMd(map);
+		HashMap<String,Object> hashMap = parser.parserMd(map);
 		long endTime = System.currentTimeMillis();
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {

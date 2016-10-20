@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class MethodsNameTest {
-	Map map = new HashMap();
+	Map<String,Object> map = new HashMap<>();
 
 	@Test
 	public void testDel() throws IOException {
@@ -18,7 +17,7 @@ public class MethodsNameTest {
 		map.put("toFileName", null);
 		map.put("fileType", "del");
 		Parser parser = new SeParser();
-		HashMap hashMap = parser.parserMd(map);
+		HashMap<String,Object> hashMap = parser.parserMd(map);
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
 			System.out.println(entity.toString());
@@ -34,7 +33,7 @@ public class MethodsNameTest {
 				"source_to_parse/junit-master/src/test/java/org/junit/tests/junit3compatibility/SuiteMethodTest.java");
 		map.put("fileType", "add");
 		Parser parser = new SeParser();
-		HashMap hashMap = parser.parserMd(map);
+		HashMap<String,Object> hashMap = parser.parserMd(map);
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
 			System.out.println(entity.toString());

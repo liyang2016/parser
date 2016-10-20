@@ -33,7 +33,7 @@ public class MethodChanger {
 	/**
 	 * Simple visitor implementation for visiting MethodDeclaration nodes.
 	 */
-	private static class MethodChangerVisitor extends VoidVisitorAdapter {
+	private static class MethodChangerVisitor extends VoidVisitorAdapter<Object> {
 
 		@Override
 		public void visit(MethodDeclaration n, Object arg) {
