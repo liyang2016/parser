@@ -1,4 +1,5 @@
 对比解析Java类文件前后修改状态：
+
       实现ParserAbstract抽象类，重写modify、delOrAdd方法。
       给出了两种解析方法，分别是BinParser和SeParser类，后面需要进一步优化可以直接实现ParserAbstract抽象类。
       
