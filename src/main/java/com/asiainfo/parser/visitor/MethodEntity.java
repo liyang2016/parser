@@ -1,6 +1,6 @@
-package com.asiainfo.parser;
+package com.asiainfo.parser.visitor;
 
-class MethodEntity {
+public class MethodEntity {
 	private String name;
 	private int beginIndex;
 	private int endIndex;

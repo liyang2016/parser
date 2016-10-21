@@ -1,4 +1,4 @@
-package com.asiainfo.parser;
+package com.asiainfo.parser.visitor;
 
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;

@@ -3,7 +3,10 @@ package com.asiainfo.parser;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class BinParser extends Parser {
+import com.asiainfo.parser.visitor.MethodEntity;
+import com.asiainfo.parser.visitor.ParserAbstract;
+
+public class BinParser extends ParserAbstract {
 	public void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
 			throws IOException {
 		ArrayList<MethodEntity> methods = methodsName(fromFile);

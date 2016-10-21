@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.asiainfo.parser.visitor.MethodEntity;
+import com.asiainfo.parser.visitor.ParserAbstract;
+
 public class MethodsNameTest {
 	Map<String,Object> map = new HashMap<>();
 
@@ -16,8 +19,8 @@ public class MethodsNameTest {
 				"source_to_parse/junit-master/src/test/java/org/junit/tests/junit3compatibility/SuiteMethodTest.java");
 		map.put("toFileName", null);
 		map.put("fileType", "del");
-		Parser parser = new SeParser();
-		HashMap<String,Object> hashMap = parser.parserMd(map);
+		ParserAbstract parserAbstract = new SeParser();
+		HashMap<String,Object> hashMap = parserAbstract.parserMd(map);
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
 			System.out.println(entity.toString());
@@ -32,8 +35,8 @@ public class MethodsNameTest {
 		map.put("toFileName",
 				"source_to_parse/junit-master/src/test/java/org/junit/tests/junit3compatibility/SuiteMethodTest.java");
 		map.put("fileType", "add");
-		Parser parser = new SeParser();
-		HashMap<String,Object> hashMap = parser.parserMd(map);
+		ParserAbstract parserAbstract = new SeParser();
+		HashMap<String,Object> hashMap = parserAbstract.parserMd(map);
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
 			System.out.println(entity.toString());

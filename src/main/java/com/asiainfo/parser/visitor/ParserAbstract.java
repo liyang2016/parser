@@ -1,4 +1,4 @@
-package com.asiainfo.parser;
+package com.asiainfo.parser.visitor;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 
-public abstract class Parser {
-	HashMap<String, Object> resultMap = new HashMap<>();
+public abstract class ParserAbstract {
+	public HashMap<String, Object> resultMap = new HashMap<>();
 
 	public ArrayList<MethodEntity> methodsName(String file) throws IOException {
 		// String basePath = this.getClass().getResource("/").getPath();
