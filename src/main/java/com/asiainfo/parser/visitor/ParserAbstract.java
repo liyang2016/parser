@@ -13,9 +13,9 @@ import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 
 public abstract class ParserAbstract {
-	public HashMap<String, Object> resultMap = new HashMap<>();
+	protected HashMap<String, Object> resultMap = new HashMap<>();
 
-	public ArrayList<MethodEntity> methodsName(String file) throws IOException {
+	protected ArrayList<MethodEntity> methodsName(String file) throws IOException {
 		// String basePath = this.getClass().getResource("/").getPath();
 		// FileInputStream in = new FileInputStream(
 		// "source_to_parse/junit-master/src/test/java/org/junit/tests/junit3compatibility/SuiteMethodTest.java");
@@ -41,10 +41,10 @@ public abstract class ParserAbstract {
 		return methodVisitor.getMethodList();
 	}
 
-	public abstract void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
+	protected abstract void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
 			throws IOException;
 
-	public abstract void delOrAdd(String srcFile) throws IOException;
+	protected abstract void delOrAdd(String srcFile) throws IOException;
 
 	public HashMap<String, Object> parserMd(Map<String, Object> map) throws IOException {
 		if (map.get("fileType").equals("del")) {
@@ -58,7 +58,7 @@ public abstract class ParserAbstract {
 		return resultMap;
 	}
 
-	public void removeSame(ArrayList<MethodEntity> methods) {
+	protected void removeSame(ArrayList<MethodEntity> methods) {
 		Set<MethodEntity> set = new LinkedHashSet<MethodEntity>();
 		set.addAll(methods);
 		methods.clear();

@@ -7,7 +7,7 @@ import com.asiainfo.parser.visitor.MethodEntity;
 import com.asiainfo.parser.visitor.ParserAbstract;
 
 public class BinParser extends ParserAbstract {
-	public void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
+	protected void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
 			throws IOException {
 		ArrayList<MethodEntity> methods = methodsName(fromFile);
 		// for (MethodEntity methodEntity : methods) {
@@ -30,7 +30,7 @@ public class BinParser extends ParserAbstract {
 		resultMap.put("methods", resultMethods);
 	}
 
-	public void delOrAdd(String srcFile) throws IOException {
+	protected void delOrAdd(String srcFile) throws IOException {
 		ArrayList<MethodEntity> entities = methodsName(srcFile);
 		removeSame(entities);
 		resultMap.put("methods", entities);
