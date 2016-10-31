@@ -87,6 +87,10 @@ public class OptimizeTest {
 			System.out.println(entity.toString());
 		}
 		String str = (String) hashMap.get("packageName");
+		ArrayList<String> classList=(ArrayList<String>) hashMap.get("className");
+		for (String string : classList) {
+			System.out.println(string);
+		}
 		System.out.println(str);
 		System.out.println("Time:" + (endTime - startTime));
 	}

@@ -38,6 +38,7 @@ public abstract class ParserAbstract {
 
 		ClassVisitor classVisitor = new ClassVisitor();
 		classVisitor.visit(unit, null);
+		resultMap.put("className", classVisitor.getClassList());
 		return methodVisitor.getMethodList();
 	}
 
