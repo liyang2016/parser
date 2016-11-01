@@ -1,4 +1,4 @@
-package com.asiainfo.parser.visitor;
+package com.asiainfo.parser.entity;
 
 public class MethodEntity {
 	private String name;

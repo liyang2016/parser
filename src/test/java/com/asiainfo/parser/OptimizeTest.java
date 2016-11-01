@@ -7,8 +7,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.asiainfo.parser.visitor.MethodEntity;
-import com.asiainfo.parser.visitor.ParserAbstract;
+import com.asiainfo.parser.entity.MethodEntity;
 
 public class OptimizeTest {
 	Map<String,Object> map = new HashMap<>();
@@ -41,7 +40,7 @@ public class OptimizeTest {
 		map.put("addLines", addList);
 		ParserAbstract parserAbstract = new BinParser();
 		long startTime = System.currentTimeMillis();
-		HashMap<String,Object> hashMap = parserAbstract.parserMd(map);
+		HashMap<String,Object> hashMap = parserAbstract.getResultMap(map);
 		long endTime = System.currentTimeMillis();
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {
@@ -78,9 +77,9 @@ public class OptimizeTest {
 		addList.add(59);
 		map.put("delLines", delList);
 		map.put("addLines", addList);
-		ParserAbstract parserAbstract = new SeParser();
+		ParserAbstract parserAbstract = new OptimizeParser();
 		long startTime = System.currentTimeMillis();
-		HashMap<String,Object> hashMap = parserAbstract.parserMd(map);
+		HashMap<String,Object> hashMap = parserAbstract.getResultMap(map);
 		long endTime = System.currentTimeMillis();
 		ArrayList<MethodEntity> list = (ArrayList<MethodEntity>) hashMap.get("methods");
 		for (MethodEntity entity : list) {

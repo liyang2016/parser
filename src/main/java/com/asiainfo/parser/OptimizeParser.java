@@ -3,21 +3,22 @@ package com.asiainfo.parser;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.asiainfo.parser.visitor.MethodEntity;
-import com.asiainfo.parser.visitor.ParserAbstract;
+import com.asiainfo.parser.entity.MethodEntity;
 
 /**
  * 利用类中的search方法，寻找被修改的方法，放入结果集中
  * @author Administrator
  *
  */
-public class SeParser extends ParserAbstract {
+public class OptimizeParser extends ParserAbstract {
+	
+	/**
+	 * 文件为修改状态时
+	 * 将改变的方法信息，放入结果集中
+	 */
 	protected void modify(String fromFile, ArrayList<Integer> delLinesList, ArrayList<Integer> addLinesList)
 			throws IOException {
 		ArrayList<MethodEntity> methods = methodsName(fromFile);
-		// for (MethodEntity methodEntity : methods) {
-		// System.out.println(methodEntity);
-		// }
 		ArrayList<MethodEntity> resultMethods = new ArrayList<MethodEntity>();
 		search(methods, addLinesList, resultMethods);
 		search(methods, delLinesList, resultMethods);
@@ -25,6 +26,10 @@ public class SeParser extends ParserAbstract {
 		resultMap.put("methods", resultMethods);
 	}
 
+	/**
+	 * 文件为删除或者新增状态时
+	 * 即将所有的方法，放入结果集中
+	 */
 	protected void delOrAdd(String srcFile) throws IOException {
 		ArrayList<MethodEntity> entities = methodsName(srcFile);
 		removeSame(entities);

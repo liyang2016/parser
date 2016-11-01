@@ -2,10 +2,11 @@ package com.asiainfo.parser.visitor;
 
 import java.util.ArrayList;
 
+import com.asiainfo.parser.entity.MethodEntity;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
-class MethodVisitor extends VoidVisitorAdapter<Object> {
+public class MethodVisitor extends VoidVisitorAdapter<Object> {
 
 	private ArrayList<MethodEntity> methodList = new ArrayList<MethodEntity>();
 

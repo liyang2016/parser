@@ -1,4 +1,4 @@
-package com.asiainfo.parser.visitor;
+package com.asiainfo.parser;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,10 +8,19 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.asiainfo.parser.entity.MethodEntity;
+import com.asiainfo.parser.visitor.ClassVisitor;
+import com.asiainfo.parser.visitor.MethodVisitor;
+import com.asiainfo.parser.visitor.PackageVisitor;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 
+/**
+ * 抽象类
+ * @author Administrator
+ *
+ */
 public abstract class ParserAbstract {
 	protected HashMap<String, Object> resultMap = new HashMap<>();
 
@@ -47,7 +56,7 @@ public abstract class ParserAbstract {
 
 	protected abstract void delOrAdd(String srcFile) throws IOException;
 
-	public HashMap<String, Object> parserMd(Map<String, Object> map) throws IOException {
+	public HashMap<String, Object> getResultMap(Map<String, Object> map) throws IOException {
 		if (map.get("fileType").equals("del")) {
 			delOrAdd((String) map.get("fromFileName"));
 		} else if (map.get("fileType").equals("add")) {

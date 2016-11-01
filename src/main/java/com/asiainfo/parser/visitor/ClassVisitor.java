@@ -8,7 +8,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 /*
  * 
  */
-class ClassVisitor extends VoidVisitorAdapter<Object> {
+public class ClassVisitor extends VoidVisitorAdapter<Object> {
 	private ArrayList<String> classList = new ArrayList<String>();
 
 	public void visit(ClassOrInterfaceDeclaration declaration, Object object) {
